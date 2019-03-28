@@ -82,10 +82,10 @@ route.get('/verified_user',(req,res)=>{
             
       });
      }
-    )}
+    
     catch (err) {
     //console.error("error");
 }                                                           
-    
+});
 
 module.exports = route
