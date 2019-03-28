@@ -24,8 +24,9 @@ function random_string(n)
 
 route.post('/aadhaar_auth',(req,res)=>{
     // res.send('/aadhaar_auth route')
+  
+    // Info from aadhaar server  
     let name  = random_string(6)
-    
     res.send(
         {
             name:name,
@@ -38,6 +39,11 @@ route.post('/aadhaar_auth',(req,res)=>{
 
 route.get('/verified_user',(req,res)=>{
     // res.send('/verified_user route')
+    // 
+    // database work
+    // will find if aadhaar given is in the database or not if present will not add and return with new Error message:" previously added "
+    // if not will add it to table 
+
     
 })
 
