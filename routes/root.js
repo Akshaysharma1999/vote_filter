@@ -43,8 +43,16 @@ route.get('/verified_user',(req,res)=>{
     // database work
     // will find if aadhaar given is in the database or not if present will not add and return with new Error message:" previously added "
     // if not will add it to table 
-
-    
+    // 
+    //json (sample)  
+    //   {
+    //	"voter":{
+   //    "name":"akshay",
+   //     "age":20
+  //      }
+  //    }
+  //  to access req.body.voter.
+  
 })
 
 module.exports = route
