@@ -79,6 +79,7 @@ route.get('/verified_user',(req,res)=>{
         } else {
             console.log('Voter is present in the database')
        };
+            
       });
      }
     catch (err) {
