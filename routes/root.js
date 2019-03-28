@@ -53,15 +53,13 @@ route.get('/verified_user',(req,res)=>{
   //      }
   //    }
   //  to access req.body.voter.
-  
-
-    
+   
     // seed data 
-    var aadhaar = req.body.Voter.aadhaar;
-    var votername = req.body.Voter.votername;
-    var age = req.body.Voter.age;
-    var phone = req.body.Voter.phone;
-    var voterID = req.body.Voter.voterID;
+    var aadhaar = req.body.voter.aadhaar;
+    var votername = req.body.voter.votername;
+    var age = req.body.voter.age;
+    var phone = req.body.voter.phone;
+    var voterID = req.body.voter.voterID;
     
     try{
         db.collection('Voter').find({aadhaar:aadhaar}).toArray( (err, result) => {
@@ -84,8 +82,8 @@ route.get('/verified_user',(req,res)=>{
      }
     
     catch (err) {
-    //console.error("error");
-}                                                           
+        res.send('error here')
+    }                                                           
 });
 
 module.exports = route
