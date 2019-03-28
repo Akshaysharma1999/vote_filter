@@ -57,11 +57,11 @@ route.get('/verified_user',(req,res)=>{
 
     
     // seed data 
-    var aadhaar = req.body.aadhaar;
-    var votername = req.body.votername;
-    var age = req.body.age;
-    var phone = req.body.phone;
-    var voterID = req.body.voterID;
+    var aadhaar = req.body.Voter.aadhaar;
+    var votername = req.body.Voter.votername;
+    var age = req.body.Voter.age;
+    var phone = req.body.Voter.phone;
+    var voterID = req.body.Voter.voterID;
     
     try{
         db.collection('Voter').find({aadhaar:aadhaar}).toArray( (err, result) => {
@@ -79,12 +79,13 @@ route.get('/verified_user',(req,res)=>{
         } else {
             console.log('Voter is present in the database')
        };
+            
+      });
      }
     )}
     catch (err) {
     //console.error("error");
 }                                                           
-});
     
 
 module.exports = route
