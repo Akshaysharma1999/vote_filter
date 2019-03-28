@@ -11,7 +11,7 @@ var  VoterSchema = mongoose.Schema({
         required: true
     },
     age: {
-        type: integer,
+        type: Integer,
         required: true
     },
     phone: {
