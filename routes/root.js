@@ -7,6 +7,7 @@ route.post('/aadhaar_auth',(req,res)=>{
         {
             name:"akshay",
             ph_no:"9582312294",
+            age:19,
             otp:2294 
         }
     )
