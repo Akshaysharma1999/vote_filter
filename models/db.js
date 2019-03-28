@@ -24,4 +24,4 @@ var  VoterSchema = mongoose.Schema({
     }   
 });
 
-var Voter = module.exports = mongoose.model('Voter',VoterSchema);
+module.exports = mongoose.model('Voter',VoterSchema);
