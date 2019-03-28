@@ -62,7 +62,7 @@ route.get('/verified_user',(req,res)=>{
     var voterID = req.body.voter.voterID;
     
     try{
-        db.collection('Voter').find({aadhaar:aadhaar}).toArray( (err, result) => {
+        Voter.find({aadhaar:aadhaar}).toArray( (err, result) => {
         if (err) {
             console.log('Search error');
         } else if (_.isEmpty(result)) {
