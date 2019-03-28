@@ -61,17 +61,17 @@ route.get('/verified_user',(req,res)=>{
     var phone = req.body.voter.phone;
     var voterID = req.body.voter.voterID;
     
-    try{
-        db.collection('Voter').find({aadhaar:aadhaar}).toArray( (err, result) => {
+    try{       
+        Voter.find({aadhaar:aadhaar}).toArray( (err, result) => {
         if (err) {
             console.log('Search error');
         } else if (_.isEmpty(result)) {
             console.log('Voter is not present in the data base')
             result.save()
-                .then(item => {
+                .then( (item) => {
                     res.send("Voter is saved to the database");
                  })
-                 .catch(err => {
+                 .catch( (err) => {
                     res.status(400).send("Unable to save the voter to the  database");
               });
         } else {
