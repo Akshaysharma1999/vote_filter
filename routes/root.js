@@ -66,18 +66,17 @@ route.get('/verified_user',(req,res)=>{
         if (err) {
             console.log('Search error');
         } else if (_.isEmpty(result)) {
-            console.log('Voter is not present in the data base')
-            result.save()
-                .then(item => {
-                    res.send("Voter is saved to the database");
-                 })
-                 .catch(err => {
-                    res.status(400).send("Unable to save the voter to the  database");
-              });
+            console.log('Voter is not present in the data base');
+            result.save(function (err, result){
+                    if (err) { 
+                        console.error(err);
+                        res.status(400).send("Unable to save the voter to the  database");
+                    }
+                res.send("Voter is saved to the database");
+            })
         } else {
-            console.log('Voter is present in the database')
-       };
-            
+            console.log('Voter is present in the database');
+       }   
       });
      }
     
