@@ -64,7 +64,7 @@ route.get('/verified_user',(req,res)=>{
     var voterID = req.body.voterID;
     
     try{
-        db.collection('Voter').find({aadhaar:aadhaar}).toArray((err, result) => {
+        db.collection('Voter').find({aadhaar:aadhaar}).toArray( (err, result) => {
         if (err) {
             console.log('Search error');
         } else if (_.isEmpty(result)) {
@@ -80,11 +80,11 @@ route.get('/verified_user',(req,res)=>{
             console.log('Voter is present in the database')
        };
      }
+    )}
     catch (err) {
     //console.error("error");
 }                                                           
 });
     
-})
 
 module.exports = route
