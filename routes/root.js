@@ -54,12 +54,14 @@ route.get('/verified_user',(req,res)=>{
   //    }
   //  to access req.body.voter.
    
-    // seed data 
-    var aadhaar = req.body.voter.aadhaar;
-    var votername = req.body.voter.votername;
-    var age = req.body.voter.age;
-    var phone = req.body.voter.phone;
-    var voterID = req.body.voter.voterID;
+    //  new Voter data 
+    let data = new Voter({
+        aadhaar: req.body.voter.aadhaar;
+        votername: req.body.voter.votername;
+        age: req.body.voter.age;
+        phone: req.body.voter.phone;
+        voterID: req.body.voter.voterID;
+    });
     
     try{
         Voter.find({aadhaar:aadhaar}).toArray( (err, result) => {
@@ -67,7 +69,7 @@ route.get('/verified_user',(req,res)=>{
             console.log('Search error');
         } else if (_.isEmpty(result)) {
             console.log('Voter is not present in the data base');
-            result.save(function (err, result){
+            data.save(function(err){
                     if (err) { 
                         console.error(err);
                         res.status(400).send("Unable to save the voter to the  database");
