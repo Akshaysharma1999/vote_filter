@@ -64,7 +64,7 @@ route.get('/verified_user',(req,res)=>{
     });
     
     try{
-        Voter.find({aadhaar:aadhaar}).toArray( (err, result) => {
+        Voter.find({data.aadhaar:aadhaar}).toArray( (err, result) => {
         if (err) {
             console.log('Search error');
         } else if (_.isEmpty(result)) {
